@@ -25,10 +25,20 @@
         font-family: "Lexend", sans-serif;
       }
 
-      /* .btn-text-size {
-        font-size: 1.25rem;
-        line-height: 1rem;
-      } */
+      /* blur css */
+      .bg-blur {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+      /* green to gray btn function */
+      .btn-active {
+        background-color: #B4F461;
+      }
+
+      .btn-inactive {
+        background-color: rgba(17, 17, 17, 0.05);
+      }
+
     </style>
     <!-- custom color script -->
     <script>
@@ -38,6 +48,9 @@
             colors: {
               clifford: "#da373d",
               "primary-btn": "#B4F461",
+              "navbar-color": "#F9F7F3",
+              "second-btn": "rgba(17, 17, 17, 0.05)",
+              "section-color": "rgba(248, 240, 240, 0.1)",
             },
           },
         },
@@ -47,61 +60,254 @@
   </head>
   <body class="lexend-uniquifier">
     <!-- header section -->
-    <nav class="navbar">
-      <div class="navbar bg-base-100">
-        <div class="navbar-start">
-          <div class="dropdown">
+    <header class="flex flex-col gap-20 sticky top-0 z-50">
+      <nav>
+        <div class="navbar bg-base-100 bg-navbar-color p-4 md:p-6 lg:p-8">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <button
+                class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-primary-btn font-semibold"
+              >
+                Blog
+              </button>
+            </div>
+          </div>
+          <div class="navbar-center flex gap-3">
+            <div class="navbar-center">
+              <a class="btn btn-ghost text-xl">
+                <img
+                  class="h-8 md:h-10 lg:h-11"
+                  src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/logo.png"
+                  alt=""
+                /><span class="hidden sm:inline">Donate Bangladesh</span></a
+              >
+            </div>
+          </div>
+
+          <div class="navbar-end flex items-center">
             <button
-              class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-primary-btn font-semibold"
+              class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-transparent border-none shadow-none flex items-center gap-2"
             >
-              Blog
+              <img
+                class="h-4 sm:h-5"
+                src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/coin.png"
+                alt=""
+              />
+
+              <p class="font-semibold text-slate-600">5500 BDT</p>
             </button>
           </div>
         </div>
-        <div class="navbar-center flex gap-3">
-          <!-- <img
-            class="h-11"
-            src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/logo.png"
-            alt=""
-          />
-          <p class="text-xl font-semibold">DonateBangladesh</p> -->
-          <div class="navbar-center">
-            <a class="btn btn-ghost text-xl"> <img
-                class="h-11"
-                src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/logo.png"
-                alt=""
-              />Donate Bangladesh</a>
-          </div>
-        </div>
+      </nav>
 
-        <div class="navbar-end">
-          <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-transparent border-none shadow-none">
-            <img
-              class="h-5"
-              src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/coin.png"
-              alt=""
-            />
-
-            <p class="font-semibold">5500</p>
-          </button>
-        </div>
+      <div class="js-btns flex justify-center gap-4">
+        <button
+          id="btn-donation"
+          class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-primary-btn"
+        >
+          Donation
+        </button>
+        <button
+          id="btn-history"
+          class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+        >
+          History
+        </button>
       </div>
-    </nav>
+    </header>
 
     <!-- header end -->
+
     <!-- main section start -->
-    <main>
+    <main class="flex flex-col gap-8 mt-8">
       <!-- section 1 -->
-      <section></section>
-      <!-- section 1 end -->
+
+      <section class="px-9">
+        <div
+          class="p-6 md:p-8 lg:p-12 m-4 md:m-6 lg:m-8 border rounded-2xl shadow-lg bg-section-color"
+        >
+          <div class="hero min-h-screen">
+            <div class="hero-content flex-col lg:flex-row">
+              <img
+                src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/noakhali.png"
+                alt=""
+              />
+              <div class="flex flex-col gap-4">
+                <div>
+                  <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                    <img
+                      class="h-5"
+                      src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/coin.png"
+                      alt=""
+                    />
+
+                    <p class="font-semibold text-slate-600">0 BDT</p>
+                  </button>
+                </div>
+
+                <h1 class="text-xl font-bold">
+                  Donate for Flood at Noakhali, Bangladesh
+                </h1>
+
+                <p class="text-slate-600">
+                  The recent floods in Noakhali have caused significant damage
+                  to homes infrastructure. Your donation will help provide
+                  essential supplies and to those affected by this disaster.
+                  Every contribution, big or small, makes difference. Please
+                  join us in supporting the relief efforts and making a positive
+                  impact on the lives of those in need.
+                </p>
+
+                <input
+                  type="text"
+                  placeholder="Write Donation Amount"
+                  class="input input-bordered w-full input-md"
+                />
+                <button class="btn btn-block bg-primary-btn">Donate Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section-1 end -->
 
       <!-- section 2-->
-      <section></section>
+      <section class="px-9">
+        <div
+          class="p-6 md:p-8 lg:p-12 m-4 md:m-6 lg:m-8 border rounded-2xl shadow-lg bg-section-color"
+        >
+          <div class="hero min-h-screen">
+            <div class="hero-content flex-col lg:flex-row">
+              <img
+                src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/feni.png"
+                alt=""
+              />
+              <div class="flex flex-col gap-4">
+                <div>
+                  <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                    <img
+                      class="h-5"
+                      src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/coin.png"
+                      alt=""
+                    />
+
+                    <p class="font-semibold text-slate-600">0 BDT</p>
+                  </button>
+                </div>
+
+                <h1 class="text-xl font-bold">
+                  Donate for Flood Relief in Feni,Bangladesh
+                </h1>
+
+                <p class="text-slate-600">
+                  The recent floods in Feni have devastated local communities,
+                  leading to severe disruption and loss. Your generous donation
+                  will help provide immediate aid, including food, clean water,
+                  and medical supplies, to those affected by this calamity.
+                  Together, we can offer crucial support and help rebuild lives
+                  in the aftermath of this disaster. Every contribution counts
+                  towards making a real difference. Please consider donating
+                  today to assist those in urgent need.
+                </p>
+
+                <input
+                  type="text"
+                  placeholder="Write Donation Amount"
+                  class="input input-bordered w-full input-md"
+                />
+                <button class="btn btn-block bg-primary-btn">Donate Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- section 2 end-->
 
       <!-- section 3 -->
-      <section></section>
+      <section class="px-9">
+        <div
+          class="p-6 md:p-8 lg:p-12 m-4 md:m-6 lg:m-8 border rounded-2xl shadow-lg bg-section-color"
+        >
+          <div class="hero min-h-screen">
+            <div class="hero-content flex-col lg:flex-row">
+              <img
+                src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/quota-protest.png"
+                alt=""
+              />
+              <div class="flex flex-col gap-4">
+                <div>
+                  <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                    <img
+                      class="h-5"
+                      src="./B10A5-DOM-Quest-Build-and-Manipulate/assets/coin.png"
+                      alt=""
+                    />
+
+                    <p class="font-semibold text-slate-600">0 BDT</p>
+                  </button>
+                </div>
+
+                <h1 class="text-xl font-bold">
+                  Aid for Injured in the Quota Movement
+                </h1>
+
+                <p class="text-slate-600">
+                  The recent Quota movement has resulted in numerous injuries
+                  and significant hardship for many individuals. Your support is
+                  crucial in providing medical assistance, rehabilitation, and
+                  necessary supplies to those affected. By contributing, you
+                  help ensure that injured individuals receive the care and
+                  support they need during this challenging time. Every donation
+                  plays a vital role in alleviating their suffering and aiding
+                  in their recovery. Please consider making a donation to
+                  support these brave individuals in their time of need.
+                </p>
+
+                <input
+                  type="text"
+                  placeholder="Write Donation Amount"
+                  class="input input-bordered w-full input-md"
+                />
+                <button class="btn btn-block bg-primary-btn">Donate Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- section 3 end-->
     </main>
+    <script src="js/features.js"></script>
+    <script>
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 0) {
+          header.classList.add("bg-blur");
+        } else {
+          header.classList.remove("bg-blur");
+        }
+      });
+
+      // Button color change functionality
+      const btnDonation = document.getElementById('btn-donation');
+      const btnHistory = document.getElementById('btn-history');
+
+      function toggleActiveButton(activeBtn, inactiveBtn) {
+        activeBtn.classList.add('btn-active');
+        activeBtn.classList.remove('btn-inactive');
+        inactiveBtn.classList.add('btn-inactive');
+        inactiveBtn.classList.remove('btn-active');
+      }
+
+      btnDonation.addEventListener('click', function () {
+        toggleActiveButton(btnDonation, btnHistory);
+      });
+
+      btnHistory.addEventListener('click', function () {
+        toggleActiveButton(btnHistory, btnDonation);
+      });
+
+   
+    </script>
   </body>
 </html>
